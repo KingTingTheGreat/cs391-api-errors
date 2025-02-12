@@ -66,7 +66,10 @@ export default function PokemonListContent() {
             type="number"
             placeholder="Number of Pokemon"
             value={limit}
-            onChange={(e) => setLimit(Number(e.target.value))}
+            onChange={(e) => {
+              const newLimit = Number(e.target.value);
+              if (newLimit > 0) setLimit(newLimit);
+            }}
           />
           <div style={{ display: "flex", flexWrap: "wrap" }}>
             {pokemonList.map((p) => (
