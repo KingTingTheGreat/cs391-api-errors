@@ -14,9 +14,7 @@ export default function PokemonPreview({
       .then((data) => setPokemon(data));
   }, [preview.url]);
 
-  return pokemon === null ? (
-    <p>loading {preview.name}...</p>
-  ) : (
+  return (
     <div
       style={{
         margin: "8px",
@@ -25,12 +23,20 @@ export default function PokemonPreview({
         borderColor: "black",
         borderStyle: "solid",
         borderRadius: "10px",
+        width: "175px",
+        height: "175px",
       }}
     >
-      <h3>
-        {pokemon.id}: {pokemon.name}
-      </h3>
-      <img src={pokemon.sprites.front_default} alt={pokemon.name} />
+      {pokemon === null ? (
+        <p>loading {preview.name}...</p>
+      ) : (
+        <>
+          <h3>
+            {pokemon.id}: {pokemon.name}
+          </h3>
+          <img src={pokemon.sprites.front_default} alt={pokemon.name} />
+        </>
+      )}
     </div>
   );
 }
