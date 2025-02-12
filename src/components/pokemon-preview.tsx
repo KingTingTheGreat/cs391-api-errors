@@ -7,11 +7,16 @@ export default function PokemonPreview({
   preview: PokemonPreviewProps;
 }) {
   const [pokemon, setPokemon] = useState<null | PokemonProps>(null);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     fetch(preview.url)
       .then((res) => res.json())
-      .then((data) => setPokemon(data));
+      .then((data) => setPokemon(data))
+      .catch((err) => {
+        console.error(err);
+        setError(true);
+      });
   }, [preview.url]);
 
   return (
@@ -28,7 +33,9 @@ export default function PokemonPreview({
       }}
     >
       {pokemon === null ? (
-        <p>loading {preview.name}...</p>
+        <p>Loading {preview.name}...</p>
+      ) : error ? (
+        <p>Error loading {preview.name}</p>
       ) : (
         <>
           <h3>
