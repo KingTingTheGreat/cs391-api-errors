@@ -55,24 +55,26 @@ export default function PokemonListContent() {
     getArtworks(token);
   }, [limit]);
 
-  if (error) {
-    return <p>The server is down, please try again later.</p>;
-  }
-
   return (
     <div style={{ minHeight: "100vh" }}>
       <h1>Random Pokemon Generator</h1>
-      <input
-        type="number"
-        placeholder="Number of Pokemon"
-        value={limit}
-        onChange={(e) => setLimit(Number(e.target.value))}
-      />
-      <div style={{ display: "flex", flexWrap: "wrap" }}>
-        {pokemonList.map((p) => (
-          <PokemonPreview preview={p} key={p.url} />
-        ))}
-      </div>
+      {error ? (
+        <p>The server is down, please try again later.</p>
+      ) : (
+        <>
+          <input
+            type="number"
+            placeholder="Number of Pokemon"
+            value={limit}
+            onChange={(e) => setLimit(Number(e.target.value))}
+          />
+          <div style={{ display: "flex", flexWrap: "wrap" }}>
+            {pokemonList.map((p) => (
+              <PokemonPreview preview={p} key={p.url} />
+            ))}
+          </div>
+        </>
+      )}
     </div>
   );
 }
