@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import { PokemonProps } from "../types";
+import { PokemonPreviewProps, PokemonProps } from "../types";
 
 export default function PokemonPreview({
   preview,
 }: {
-  preview: { name: string; url: string };
+  preview: PokemonPreviewProps;
 }) {
   const [pokemon, setPokemon] = useState<null | PokemonProps>(null);
 

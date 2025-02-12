@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
 import PokemonPreview from "./pokemon-preview";
+import { PokemonPreviewProps } from "../types";
 
 export default function PokemonListContent() {
-  const [pokemonList, setPokemonList] = useState<
-    { name: string; url: string }[]
-  >([]);
+  const [pokemonList, setPokemonList] = useState<PokemonPreviewProps[]>([]);
   const [limit, setLimit] = useState(5); // default to 5
   const [token, setToken] = useState("");
   const [error, setError] = useState(false);

@@ -1,3 +1,8 @@
+export type PokemonPreviewProps = {
+  name: string;
+  url: string;
+};
+
 export type PokemonProps = {
   name: string;
   sprites: {
