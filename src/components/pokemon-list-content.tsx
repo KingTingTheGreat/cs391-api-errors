@@ -17,7 +17,7 @@ export default function PokemonListContent() {
 
       if (res.ok) return await res.text();
       if (res.status >= 500) {
-        console.log("server error");
+        console.log("server error getting token");
         setError(true);
         return "";
       }
@@ -39,7 +39,7 @@ export default function PokemonListContent() {
         );
         if (res.status >= 400 && res.status <= 499) throw new Error();
         if (res.status >= 500) {
-          console.log("server error");
+          console.log("server error getting pokemon");
           setError(true);
           return;
         }
