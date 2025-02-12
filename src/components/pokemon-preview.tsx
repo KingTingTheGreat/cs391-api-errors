@@ -23,8 +23,8 @@ export default function PokemonPreview({
         borderColor: "black",
         borderStyle: "solid",
         borderRadius: "10px",
-        width: "175px",
-        height: "175px",
+        width: "250px",
+        height: "250px",
       }}
     >
       {pokemon === null ? (
