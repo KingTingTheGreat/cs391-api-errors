@@ -17,6 +17,7 @@ export default function PokemonListContent() {
 
       if (res.ok) return await res.text();
       if (res.status >= 500) {
+        console.log("server error");
         setError(true);
         return "";
       }
@@ -38,6 +39,7 @@ export default function PokemonListContent() {
         );
         if (res.status >= 400 && res.status <= 499) throw new Error();
         if (res.status >= 500) {
+          console.log("server error");
           setError(true);
           return;
         }
@@ -47,6 +49,7 @@ export default function PokemonListContent() {
         setPokemonList(data.results);
       } catch {
         const newToken = await getToken();
+        if (!newToken) return;
         getArtworks(newToken);
       }
     }
