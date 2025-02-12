@@ -58,7 +58,7 @@ export default function PokemonListContent() {
   }
 
   return (
-    <div>
+    <div style={{ minHeight: "100vh" }}>
       <h1>Random Pokemon Generator</h1>
       <input
         type="number"
