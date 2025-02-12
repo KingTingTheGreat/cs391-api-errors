@@ -71,7 +71,13 @@ export default function PokemonListContent() {
               if (newLimit > 0) setLimit(newLimit);
             }}
           />
-          <div style={{ display: "flex", flexWrap: "wrap" }}>
+          <div
+            style={{
+              display: "flex",
+              flexWrap: "wrap",
+              justifyContent: "center",
+            }}
+          >
             {pokemonList.map((p) => (
               <PokemonPreview preview={p} key={p.url} />
             ))}
