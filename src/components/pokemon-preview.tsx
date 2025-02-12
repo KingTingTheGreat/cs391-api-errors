@@ -32,10 +32,10 @@ export default function PokemonPreview({
         height: "250px",
       }}
     >
-      {pokemon === null ? (
-        <p>Loading {preview.name}...</p>
-      ) : error ? (
+      {error ? (
         <p>Error loading {preview.name}</p>
+      ) : pokemon === null ? (
+        <p>Loading {preview.name}...</p>
       ) : (
         <>
           <h3>
