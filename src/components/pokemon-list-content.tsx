@@ -9,17 +9,21 @@ export default function PokemonListContent() {
   const [error, setError] = useState(false);
 
   async function getToken() {
-    while (true) {
+    try {
       const res = await fetch("https://cs391-endpoints.vercel.app/token", {
         method: "POST",
       });
 
-      if (res.ok) return await res.text();
-      if (res.status >= 500) {
-        console.log("server error getting token");
-        setError(true);
-        return "";
+      if (res.ok) {
+        setError(false);
+        return await res.text();
       }
+
+      throw new Error("failed to get token");
+    } catch (e) {
+      console.error(e);
+      setError(true);
+      return "";
     }
   }
 

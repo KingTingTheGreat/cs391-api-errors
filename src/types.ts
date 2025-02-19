@@ -9,4 +9,8 @@ export type PokemonProps = {
     front_default: string;
   };
   id: number;
+  cries: {
+    latest: string;
+    legacy: string;
+  };
 };

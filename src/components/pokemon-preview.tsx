@@ -31,6 +31,10 @@ export default function PokemonPreview({
         width: "250px",
         height: "250px",
       }}
+      onClick={() => {
+        if (error || pokemon === null) return;
+        new Audio(pokemon.cries.legacy).play();
+      }}
     >
       {error ? (
         <p>Error loading {preview.name}</p>
