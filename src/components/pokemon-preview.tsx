@@ -30,10 +30,16 @@ export default function PokemonPreview({
         borderRadius: "10px",
         width: "250px",
         height: "250px",
+        cursor: "pointer",
       }}
       onClick={() => {
         if (error || pokemon === null) return;
-        new Audio(pokemon.cries.legacy).play();
+        console.log("pokemon", pokemon);
+        if (pokemon.cries.latest) {
+          new Audio(pokemon.cries.latest).play();
+        } else {
+          new Audio(pokemon.cries.legacy).play();
+        }
       }}
     >
       {error ? (
